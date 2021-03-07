@@ -8,6 +8,16 @@ const client:SynicClient = new SynicClient({
    prefix: process.env.DISCORD_CLIENT_PREFIX!,
 });
 
+// Event Handler
+const eventFiles = readdirSync(join(__dirname, "events")).filter(file => file.endsWith(".js"));
+for (const file of eventFiles) {
+   const event = require(`./events/${file}`);
+   const eventName = file.split(".").shift();
+   client.on(eventName!, event.bind(null, client));
+   delete require.cache[require.resolve(`./events/${file}`)];
+   console.log(`${file} event loaded!`);
+}
+
 // Command Handler
 readdirSync(join(__dirname, "commands")).forEach(dir => {
    const commandFiles = readdirSync(join(__dirname, `./commands/${dir}/`)).filter(file => file.endsWith(".js"));
