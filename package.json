@@ -1,0 +1,24 @@
+{
+  "name": "@synic/synic",
+  "version": "1.0.0",
+  "description": "A discord bot & web dashboard combo",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommyshelby9121/Synic.git"
+  },
+  "keywords": [
+    "discordjs",
+    "react",
+    "nodejs"
+  ],
+  "author": "Sycrixx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommyshelby9121/Synic/issues"
+  },
+  "homepage": "https://github.com/tommyshelby9121/Synic#readme"
+}
