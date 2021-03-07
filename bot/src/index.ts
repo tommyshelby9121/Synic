@@ -1,9 +1,23 @@
 import { config } from "dotenv";
 config();
+import { readdirSync } from "fs";
+import { join } from "path";
 import { SynicClient } from "./struct/Client";
 const client:SynicClient = new SynicClient({
-   token: process.env.DISCORD_CLIENT_TOKEN,
-   prefix: process.env.DISCORD_CLIENT_PREFIX,
+   token: process.env.DISCORD_CLIENT_TOKEN!,
+   prefix: process.env.DISCORD_CLIENT_PREFIX!,
+});
+
+// Command Handler
+readdirSync(join(__dirname, "commands")).forEach(dir => {
+   const commandFiles = readdirSync(join(__dirname, `./commands/${dir}/`)).filter(file => file.endsWith(".js"));
+
+   for (const file of commandFiles) {
+      const command = require(`./commands/${dir}/${file}`);
+      if (command.default.name) {
+         client.commands.set(command.default.name, command.default);
+      }
+   }
 });
 
 // Login
