@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/tommyshelby9121/Synic/issues"
   },
-  "homepage": "https://github.com/tommyshelby9121/Synic#readme"
+  "homepage": "https://github.com/tommyshelby9121/Synic#readme",
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
 }
