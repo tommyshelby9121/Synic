@@ -27,6 +27,7 @@ readdirSync(join(__dirname, "commands")).forEach(dir => {
       if (command.default.name) {
          client.commands.set(command.default.name, command.default);
       }
+      console.log(`${file} command loaded!`);
    }
 });
 
