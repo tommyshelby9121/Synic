@@ -3,10 +3,14 @@ config();
 import { readdirSync } from "fs";
 import { join } from "path";
 import { SynicClient } from "./struct/Client";
+import connectDB from "./database/connection";
 const client:SynicClient = new SynicClient({
    token: process.env.DISCORD_CLIENT_TOKEN!,
    prefix: process.env.DISCORD_CLIENT_PREFIX!,
 });
+
+// Establish MongoDB Connection
+connectDB().catch(err => console.error(`Error establishing MongoDB Connection: ${err.message}`));
 
 // Event Handler
 const eventFiles = readdirSync(join(__dirname, "events")).filter(file => file.endsWith(".js"));
