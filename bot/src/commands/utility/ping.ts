@@ -5,8 +5,8 @@ export default {
     name: "ping",
     description: "Get bot & api latency",
     /**
-     * @param {SynicClient} client
-     * @param {Message} message
+     * @param { SynicClient } client
+     * @param { Message } message
      */
     async execute(client:SynicClient, message:Message) {
         const msg = await message.channel.send("Pinging... 🏓");
