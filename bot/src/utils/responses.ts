@@ -4,5 +4,11 @@ export default {
         no_bot_permission: "I am unable to execute this command. Please provide me with the required permission!",
         no_user_provided: "Please specify a user",
         no_case_arg: "Please provide a case number",
+    },
+    moderation: {
+        warn: {
+            user_warn_failure: "Unable to warn user!",
+            user_warn_self: "You cannot warn yourself!"
+        }
     }
 }
