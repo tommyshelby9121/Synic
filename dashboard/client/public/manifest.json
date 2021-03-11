@@ -1,0 +1,8 @@
+{
+  "short_name": "Synic Dashboard",
+  "name": "Front-end dashboard for Synic",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
