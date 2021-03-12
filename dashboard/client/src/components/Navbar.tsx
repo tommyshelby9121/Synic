@@ -31,7 +31,10 @@ class Navbar extends Component<any> {
                                 <a className="nav-link active" aria-current="page" href="/invite">Add to Server</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active btn btn-primary red w-100" href="/auth">Login with Discord</a>
+                                <a className="nav-link active btn btn-primary red w-100" href="/auth" onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = "http://localhost:5000/api/auth";
+                                }}>Login with Discord</a>
                             </li>
                         </ul>
                     </div>
