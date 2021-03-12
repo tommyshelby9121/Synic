@@ -28,6 +28,16 @@ module.exports = (passport:any) => {
             if (findUser) {
                 return done(null, findUser);
             }
+            // If user does not exist, create & return newUser
+            else {
+                const newUser = await User.create({
+                   discordId: id,
+                   discordTag: `${username}#${discriminator}`,
+                   avatar,
+                   guilds: filteredGuilds,
+                });
+                return done(null, newUser);
+            }
         }
         catch (err) {
             console.error(`Error logging in user: ${err.message}`);
