@@ -44,4 +44,21 @@ module.exports = (passport:any) => {
             process.exit(1);
         }
     }));
+
+    // Serialize User
+    passport.serializeUser((user:any, done:any) => {
+        done(null, user.discordId);
+    });
+
+    // Deserialize User
+    passport.deserializeUser(async (discordId:any, done:any) => {
+       try {
+           const user = await User.findOne({ discordId });
+           return user ? done(null, user) : done(null, null);
+       }
+       catch (err) {
+           console.error(`Error deserializing user: ${err.message}`);
+           process.exit(1);
+       }
+    });
 }
