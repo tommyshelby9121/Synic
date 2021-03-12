@@ -23,6 +23,11 @@ module.exports = (passport:any) => {
             }, { new: true }, (err) => {
                if (err) return console.error(`Error finding/updating user: ${err.message}`);
             });
+
+            // If user exists return findUser
+            if (findUser) {
+                return done(null, findUser);
+            }
         }
         catch (err) {
             console.error(`Error logging in user: ${err.message}`);
