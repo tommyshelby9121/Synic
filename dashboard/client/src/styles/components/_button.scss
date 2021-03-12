@@ -1,0 +1,6 @@
+// Mixin
+@import "src/styles/mixins";
+
+.btn-primary {
+  @include redButton;
+}
