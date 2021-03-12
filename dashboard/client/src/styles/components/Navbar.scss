@@ -1,0 +1,20 @@
+// Mixin
+@import "src/styles/mixins";
+
+nav.navbar {
+  background-color: rgba(0, 14, 53, 0.875) !important;
+  min-height: 72.5px;
+
+  .navbar-brand {
+    color: rgb(246, 79, 100);
+    font-weight: 500;
+  }
+
+  a.nav-link {
+    @include transition;
+
+    &:hover {
+      color: rgba(246, 79, 100) !important;
+    }
+  }
+}
