@@ -45,6 +45,10 @@ app.use(session({
     }),
 }));
 
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 import api from "./routes/api";
 app.use("/api", api);
