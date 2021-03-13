@@ -8,6 +8,11 @@ class Navbar extends Component<any> {
             window.location.href = "http://localhost:5000/api/auth";
         }
 
+        const invite = (e:any) => {
+            e.preventDefault();
+            window.location.href = "https://discord.com/api/oauth2/authorize?client_id=778350762614325249&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fauth%2Fredirect&scope=bot";
+        }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-dark">
                 <div className="container">
@@ -33,7 +38,7 @@ class Navbar extends Component<any> {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/invite">Add to Server</a>
+                                <a className="nav-link active" aria-current="page" href="/invite" onClick={invite}>Add to Server</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active btn btn-primary red w-100" href="/auth" onClick={login}>Login with Discord</a>
