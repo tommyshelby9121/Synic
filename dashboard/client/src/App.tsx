@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home";
+import Account from "./pages/Account";
 import Error404 from "./pages/Error404";
 
 class App extends Component<any> {
@@ -11,6 +12,7 @@ class App extends Component<any> {
         <Router>
             <Switch>
                 <Route path="/" exact={true} component={ Home } />
+                <Route path="/account" exact={true} component={ Account } />
                 <Route path="*" component={ Error404 } />
             </Switch>
         </Router>
