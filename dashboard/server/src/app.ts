@@ -2,6 +2,7 @@ import { config } from "dotenv";
 config();
 import express, { Application } from "express";
 import logger from "morgan";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import { connection } from "mongoose";
@@ -23,6 +24,12 @@ if (process.env.NODE_ENV === "development") {
     app.use(logger("dev"));
 }
 
+// Init Cors
+app.use(cors({
+    origin: [process.env.CLIENT_SIDE_APP_URL!],
+    credentials: true,
+}));
+
 // Body Parser
 app.use(express.urlencoded({
     extended: false,
@@ -41,7 +48,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-       mongoConnection: connection,
+        mongooseConnection: connection,
     }),
 }));
 
