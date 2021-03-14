@@ -5,9 +5,9 @@ import logger from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import { connection } from "mongoose";
+// import { connection } from "mongoose";
 import passport from "passport";
-const MongoStore = require("connect-mongo")(session);
+// const MongoStore = require("connect-mongo")(session);
 import connectDB from "./database/connection";
 
 // Init Express
@@ -47,9 +47,9 @@ app.use(session({
     },
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({
-        mongooseConnection: connection,
-    }),
+    // store: new MongoStore({
+    //     mongooseConnection: connection,
+    // }),
 }));
 
 // Passport Middleware
